@@ -9,16 +9,16 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Qeydiyyat</title>
 </head>
 <body>
 <div class="register">
     <form  method="POST">
-        <strong>Istifadeci adini daxil edin</strong> <br>
+        <strong>Istifadəçi adınə daxil edin</strong> <br>
         <input type="text" name="username"> <br><br>
         <strong>E-mail addresinizi daxil edin</strong> <br>
         <input type="email" name="email"> <br><br>
-        <strong>Sifrenizi daxil edin.</strong><br>
+        <strong>Şifrənizi daxil edin.</strong><br>
         <input type="password" name="password"><br>
         <input type="submit" value="Qeydiyyatdan kec" name="register-btn">
 
@@ -26,7 +26,7 @@ session_start();
     </form>
 </div>
 <div class="login">
-    <a href="index.php">giris ekrani.</a>
+    <a href="index.php">giriş ekranı.</a>
 
 
 </div>

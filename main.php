@@ -2,15 +2,12 @@
 include_once'config.php';
 session_start();
 
+
 //hesabina daxil olmamis istifadecinin ana sehifeye gelmesinin qarsisini aliriq.
 if(empty($_SESSION['username']) || $_SESSION['username']==""){
+
     header("Location: ./index.php");
-}else{
-    session_destroy();//bir defe giris etdikde geri qayidib url den main.php daxil edib 
-                      // ana sehifeye girmeyinin qarsisini aliriq.
 }
-
-
 
 ?>
 
@@ -21,15 +18,73 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Sehife</title>
+    <title>Ana Səhifə</title>
 </head>
 <body>
-    <header>
-        <ul>
+    <header style="display:flex;">
+    <div class="logo">
+        <img src="static/images/logo.png"  style="width:60px;height:50px;">
+    </div>
+        <ul style ="margin-left:80%;">
             <li><a href="profile.php"> Profil </a></li>
-            <li><a href="logout.php"> Cixis  </a></li>
+            <li><a href="logout.php"> Çıxış  </a></li>
     
         </ul>
     </header>
+    <!--primitiv bir Post paylasma sahesi yaradiriq  -->
+    <div class="post-sharing">
+    
+    <form action="share.php" method="POST">
+        <strong>Post başlığı</strong> <br>
+        <input type="text" name="post-title"> <br><br>
+        <strong>post mətni</strong><br>
+        <textarea name="post-text" rows=4></textarea><br>
+        <input type="submit" value="Paylaş" name="share-btn">
+
+ 
+    
+    </form>
+
+    <!--  Paylasilmis postlari databaseden cekib ana sehifeye oturme hissesini qururuq
+    bunun ucun ilk once strukturumuzu qururuq html ile sonra ise php kodlarimizi daxil edeceyik-->
+    
+    <div class="post-flow">
+
+    <?php
+    //evvelde axira db den datalari cekirik
+    $sql_query = "SELECT * FROM post order by id desc";
+    $result = mysqli_query($conn, $sql_query);
+    //datanin bos olmadigin yoxlayiriq
+    if (mysqli_num_rows($result) > 0) {
+  // datani displey edirik 
+  while($row = mysqli_fetch_assoc($result)) {
+    echo" <table  cellspacing=0 cellpadding=0 style='width:500px;'> 
+                <tr>
+                    <td><a href='profile.php'><strong>". $row['user']."</strong></a></td>
+                </tr>
+                <tr>
+                    <td><h3>". $row['title']."</h3></a></td>
+                </tr>
+                <tr>
+                    <td> <p>". $row['post_text']."</p></td>
+                </tr>
+                <tr>
+                    <td><i>". $row['post_time']."</i></td>
+                </tr>
+                <br><br>
+    
+    
+    
+        </table> 
+    
+
+    ";
+  }
+}
+
+    ?>
+    
+    </div>
+    
 </body>
 </html>

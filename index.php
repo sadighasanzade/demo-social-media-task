@@ -1,4 +1,9 @@
 <!-- sade bir giris formu qururuq html ile sonra php ile dinamiklesdireceyik-->
+<?php
+//Deyisenleri tutmaq ucun Sessionu start edirik
+session_start();
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,7 +49,10 @@ if ($method=='POST'){
     //null olmasinin qarsisini almaq ucun 'isset' funksiyasindan istifade edirik
     //eger giris ugurlu olsa esas sehifeye gonderirik
     if(isset($row['username'])==$username && isset($row['password'])==$password){
+        //username'i session deyiseni kimi qeyd edirik
+        $_SESSION['username']=$username;
         header('Location: ./main.php');
+        die();
         }
     else{
         //eger uyusmasa yanlis istifadeci adi ve ya sifre daxil etdiyini deyirik.

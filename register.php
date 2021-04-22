@@ -1,3 +1,8 @@
+<?php
+//Deyisenleri tutmaq ucun Sessionu start edirik
+session_start();
+
+?>
 <!--Sade bir qeydiyyat sehifesi duzeldirik html ile -->
 <html lang="en">
 <head>
@@ -38,6 +43,8 @@ if ($method=='POST'){
     $username=$_POST['username'];
     $email=$_POST['email'];
     $password=$_POST['password'];
+    
+
     //eyni istifadeci adi olmamasi ucun databaseden de melumatlari cekirik,
     $sql_query="SELECT * FROM userinfo WHERE username='$username' AND email='$email'";
     $result=mysqli_query($conn,$sql_query);
@@ -54,6 +61,9 @@ if ($method=='POST'){
         $sql_query="INSERT INTO userinfo(username,email,password) VALUES ('$username','$email','$password');";
         //eger hec bir problem yasanmasa if elaqe qurulacaq ve sql kodu execute olunacaq ve ana sehifeye yonlendirilecek.
         if(mysqli_query($conn,$sql_query)){
+
+          //username'i session deyiseni kimi qeyd edirik
+          $_SESSION['username']=$username;
           echo "qeydiyyat ugurla basa catdi";
           mysqli_close($conn);
           header("Location: ./main.php");

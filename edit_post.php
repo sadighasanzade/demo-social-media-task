@@ -8,6 +8,21 @@ $post_id=$_GET['id'];
 $sql_query = "SELECT * FROM post  where id='$post_id'";
 $result = mysqli_query($conn, $sql_query);
 $row = mysqli_fetch_assoc($result);
+$publisher=$row['user'];
+
+ //hesabina daxil olmamis istifadecinin profile url yazaraq gelmesinin qarsisini aliriq.
+ if(empty($_SESSION['username']) || $_SESSION['username']==""){
+
+    header("Location: ./index.php");
+}
+
+
+//ferqli userin postu editlemeyi engelleyek 
+if($_SESSION['username']!=$publisher){
+    header("Location: ./logout.php");
+}
+
+
 ?>
 <html>
 <!--Postumuzun value hisselerine databaseden cekdiyimiz melumatlari giririk ki, user editleyende 0- dan yazmasin-->

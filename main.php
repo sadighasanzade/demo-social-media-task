@@ -8,7 +8,18 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
 
     header("Location: ./index.php");
 }
+//daxil olmus userin superuser olub olmadigini yoxlayaq.
+//1)databaseden daxil olmus userin datalarin cekek
 $user=$_SESSION['username'];
+$sql_query = "SELECT * FROM userinfo  where username='$user'";
+$result = mysqli_query($conn, $sql_query);
+$row = mysqli_fetch_assoc($result);
+
+if($row['auth']==1){
+    //superuserdir.
+    header("Location: ./controlpanel.php");
+    
+}
 ?>
 
 

@@ -7,59 +7,33 @@ include_once'config.php';
     header("Location: ./index.php");
 }
 
-$user=$_GET['u']; //hansi userin profilini editlemek istediyine baxiriq.
 
-//ferqli userin profilin editlemeyi engelleyek 
-if($_SESSION['username']!=$user){
+
+//editleyenin admin oldugun yoxlayaq
+//ilk once userin admin oldugunu yoxlayaq
+$username=$_SESSION['username'];
+$sql_query = "SELECT * FROM userinfo  where username='$username'";
+$result = mysqli_query($conn, $sql_query);
+
+$row = mysqli_fetch_assoc($result);
+
+if($row['auth']!=1){
     header("Location: ./logout.php");
 }
-
-
-?>
-<html lang="en">
-<!--navbari yapisdirirq sehifenin evveline
- -->
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
-</head>
-<body>
-    <header style="display:flex;">
-    <div class="logo">
-        <img src="static/images/logo.png"  style="width:60px;height:50px;">
-    </div>
-        <ul style ="margin-left:80%;">
-            <li><a href="main.php"> Ana Səhifə </a></li>
-            <li><a href="logout.php"> Çıxış  </a></li>
-    
-        </ul>
-    </header>
-   
-    </body>
-    </html>
-
-
-    <?php
-  
-
-
-    
-  
+    $user=$_GET['u']; //hansi userin profilini editlemek istediyine baxiriq.
   //userin paylasdigi butun postlari cekirik.
   $sql_query = "SELECT * FROM post  where user='$user' order by id desc";
   $result = mysqli_query($conn, $sql_query);
   //datanin bos olmadigin yoxlayiriq
   if (mysqli_num_rows($result) > 0) {
-// datani displey edirik 
+    // datani displey edirik 
   while($row = mysqli_fetch_assoc($result)) {
     //username i link kimi vereceyik ve username e tiklandiqda profilini acacayiq
     //profilde ancaq userin paylasdigi seyler olacaq
       echo" <table  cellspacing=0 cellpadding=0 style='width:500px;'> 
               <tr>
                   
-                  <td><a href='profile.php?u=". $row['user']."'><strong>". $row['user']."</strong></a></td>
+                  <td><strong>". $row['user']."</strong></td>
               </tr>
               <tr>
                   <td><h3>". $row['title']."</h3></a></td>
@@ -74,7 +48,7 @@ if($_SESSION['username']!=$user){
   
               <tr>
                     <td><a href='delete_post.php?id=". $row['id']."'><strong> Delete </strong></a></td>
-                    <td><a href='edit_post.php?id=". $row['id']."'><strong> Edit </strong></a></td>
+                   
               
               </tr>
   

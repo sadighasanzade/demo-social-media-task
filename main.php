@@ -8,7 +8,7 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
 
     header("Location: ./index.php");
 }
-
+$user=$_SESSION['username'];
 ?>
 
 
@@ -26,7 +26,7 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
         <img src="static/images/logo.png"  style="width:60px;height:50px;">
     </div>
         <ul style ="margin-left:80%;">
-            <li><a href="profile.php"> Profil </a></li>
+            <?php echo"<li><a href='edit_profile.php?u=$user'> Profil </a></li>"?>
             <li><a href="logout.php"> Çıxış  </a></li>
     
         </ul>
@@ -58,9 +58,12 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
     if (mysqli_num_rows($result) > 0) {
   // datani displey edirik 
   while($row = mysqli_fetch_assoc($result)) {
+      //username i link kimi vereceyik ve username e tiklandiqda profilini acacayiq
+      //profilde ancaq userin paylasdigi seyler olacaq
     echo" <table  cellspacing=0 cellpadding=0 style='width:500px;'> 
                 <tr>
-                    <td><a href='profile.php'><strong>". $row['user']."</strong></a></td>
+                    
+                    <td><a href='profile.php?u=". $row['user']."'><strong>". $row['user']."</strong></a></td>
                 </tr>
                 <tr>
                     <td><h3>". $row['title']."</h3></a></td>

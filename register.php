@@ -43,7 +43,9 @@ if ($method=='POST'){
     $username=$_POST['username'];
     $email=$_POST['email'];
     $password=$_POST['password'];
-    
+    //sifreni hash formasina saliriq
+    $hashed_pass=password_hash($password,PASSWORD_DEFAULT);
+
 
     //eyni istifadeci adi olmamasi ucun databaseden de melumatlari cekirik,
     $sql_query="SELECT * FROM userinfo WHERE username='$username' AND email='$email'";
@@ -58,7 +60,7 @@ if ($method=='POST'){
     }
     else{
         //database-e melumatlari yazmaq ucun SQL kodlarin stringin icinde saxlayaq
-        $sql_query="INSERT INTO userinfo(username,email,password) VALUES ('$username','$email','$password');";
+        $sql_query="INSERT INTO userinfo(username,email,password) VALUES ('$username','$email','$hashed_pass');";
         //eger hec bir problem yasanmasa if elaqe qurulacaq ve sql kodu execute olunacaq ve ana sehifeye yonlendirilecek.
         if(mysqli_query($conn,$sql_query)){
 

@@ -17,6 +17,7 @@ $row = mysqli_fetch_assoc($result);
 
 if($row['auth']==1){
     //superuserdir.
+    
     header("Location: ./controlpanel.php");
     
 }

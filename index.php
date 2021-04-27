@@ -2,10 +2,16 @@
 <?php
 //Deyisenleri tutmaq ucun Sessionu start edirik
 session_start();
+$css="<link rel ='stylesheet' href='static/css/login.css'>";
+echo $css;
 
 ?>
+
+
 <html lang="en">
 <head>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,14 +47,15 @@ if ($method=='POST'){
     $username=$_POST['username'];
     $password=$_POST['password'];
     //databaseden de bu istifadeci adini ve sifreni cekmek ucun queryimizi yaziriq.
-    $sql_query="SELECT * FROM userinfo WHERE username='$username' AND password='$password'";
+    $sql_query="SELECT * FROM userinfo WHERE username='$username'";
     
     $result=mysqli_query($conn,$sql_query); //queryimizi execute edirik
     $row=mysqli_fetch_array($result);
     //daxil edilmis istifadeci adi ve sifreni databasedekiler ile qarsilasdiririq.
     //null olmasinin qarsisini almaq ucun 'isset' funksiyasindan istifade edirik
     //eger giris ugurlu olsa esas sehifeye gonderirik
-    if(isset($row['username'])==$username && isset($row['password'])==$password){
+    //passwordu hash ile qarsilasdirirq verified olsa True olur.
+    if(isset($row['username'])==$username && password_verify($password,$row['password'])){
         //username'i session deyiseni kimi qeyd edirik
         $_SESSION['username']=$username;
         header('Location: ./main.php');

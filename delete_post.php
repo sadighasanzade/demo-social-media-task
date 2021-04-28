@@ -1,20 +1,25 @@
+
 <?php
 include_once'config.php';
 session_start();
 //get requestden silinecek postun id-sini aliriq
 $post_id=$_GET['id'];
+$_SESSION['postID']=$post_id;
+echo"
+<script type=\"text/javascript\">
 
-$sql = "DELETE FROM post WHERE id='$post_id'"; //secilmis id ye gore silme queryimizi yaziriq
-if (mysqli_query($conn, $sql)) {
-    echo "Post ugurla silindi";
-    header("Location: ./main.php");
-  } else {
-    echo "Error deleting record: " . mysqli_error($conn);
-  }
-  
-  mysqli_close($conn);
+var c=confirm('silmek isteyirsinizmi? ');
+if(c!=true){
 
+  window.location='main.php';
+}
+else{
+window.location='confirmation.php';
+}
 
+</script>
 
-
+";
 ?>
+
+

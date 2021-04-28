@@ -21,6 +21,8 @@ if($row['auth']==1){
     header("Location: ./controlpanel.php");
     
 }
+
+
 ?>
 
 

@@ -24,12 +24,13 @@ session_start();
         <input type="email" name="email"> <br><br>
         <strong>Şifrənizi daxil edin.</strong><br>
         <input type="password" name="password"><br>
-        <input type="submit" value="Qeydiyyatdan kec" name="register-btn">
-
-
+        <div class="align">
+            <input type="submit" value="Qeydiyyatdan kec" name="register-btn">
+            <a href="index.php">giriş ekranı.</a>
+        </div>
   </form>
 
-    <a href="index.php">giriş ekranı.</a>
+    
 
 
 </div>

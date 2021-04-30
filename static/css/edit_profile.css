@@ -1,81 +1,119 @@
-body{
-    margin:0;
+* {
+
+    margin: 0;
     padding: 0;
-    background:linear-gradient(rgba(168, 168, 168, 0.152),rgb(223, 223, 221));
+    box-sizing: border-box;
 }
-header{
+
+::selection{
+    color: white;
+    background-color: black;
+}
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
     display: flex;
     width: 100%;
     height: 50px;
-    background-color:rgb(223, 223, 223);
-    justify-content:space-between;
+    background-color: #e1f1dd;
 }
+
 header ul {
-    
     display: flex;
     padding: 5px;
     align-items: center;
-    
+    margin-left: auto;
 }
-.logo img{
-    margin-right:auto;
-}
-header ul li{
-    display: inline-block;
+
+header ul li {
     list-style: none;
-    
     padding: 10px;
-    
+
 }
-header ul li a{
-    color:blue;
+
+header ul li a {
+    transition: all .3s;
+    color: #393e46;
     text-decoration: none;
-    font-size: 20px;
-    box-sizing: border-box;
-    border:1px solid white;
-    padding: 5px;
-    transition: 0.4s;
+    font-size: 18px;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 10px;
 }
-header ul li a:hover{
+
+header ul li a:hover {
     background-color: rgba(153, 247, 189, 0.3);
 }
-.post-flow{
+
+table{
+    display: block;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, .3);
+    margin-bottom: 30px;
+    width: 75% !important;
+    padding: 10px;
+}
+
+
+.post-flow {
     margin-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-table ,tr,td, a{
+
+
+
+
+table,
+tr,
+td,
+a {
     text-decoration: none;
     padding: 5px;
-    font-size:20px;
-    
+    font-size: 20px;
+    color: #64686e;
+
 }
-table,tr,td h3{
-    color:black;
+
+table tr td a:hover{
+    color: #e4e4e4;
+}
+
+
+table,
+tr,
+td h3 {
+    color: #132c33;
     font-style: bold;
-    font-size:40px;
+    font-size: 30px;
 }
-table,tr,td p{
-    font-size:20px;
+
+table,
+tr,
+td p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 10px;
 }
-table,tr,td h6{
-    font-size:16px;
-    
+
+table,
+tr,
+td h6 {
+    font-size: 14px;
+    margin: 10px 0;
+    color: rgb(167, 167, 167);
+
 }
-#delete{
-    background-color: rgb(197, 169, 169);
-    color:red;
-    box-sizing: border-box;
-    border:1px solid white;
+
+table,tr,td img{
+    vertical-align: middle;
 }
-#edit{
-    background-color: rgb(196, 248, 191);
-    
-    box-sizing: border-box;
-    border:1px solid white;
-}
-@media  only screen and (max-width :762px) {
+
+@media only screen and (max-width :800px) {
     
 }

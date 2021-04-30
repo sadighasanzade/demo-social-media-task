@@ -25,12 +25,15 @@ session_start();
         <input type="text" name="username"> <br><br>
         <strong>Sifrenizi daxil edin</strong><br>
         <input type="password" name="password"><br>
-        <input type="submit" value="daxil ol" name="login-btn">
+        <div class="align">
+                <input type="submit" value="daxil ol" name="login-btn">
+                <a href="register.php">qeydiyatdan kecin.</a>
+            </div>
 
 
     </form>
 
-    <a href="register.php">qeydiyatdan kecin.</a>
+   
 
 
 </div>

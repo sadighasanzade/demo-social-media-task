@@ -1,47 +1,97 @@
-body{
-    background:linear-gradient(rgba(38, 13, 177, 0.349),rgba(83, 10, 199, 0.9));
-    margin:0;
-    padding:0;
-    display:flex;
-    
-    
-    flex-direction: column;
-    align-items: center;
-}
-.register{
-    
-    margin-top: 15%;
-    
- }
- .register  a{
-     text-decoration: none;
-     font-size: 18px;
-     box-sizing: border-box;
-     border:1px solid white;
-     padding:5px;
-     background:rgba(255,255,255,0.3);
-     color: rgb(31, 34, 31);
- }
- .register  a:hover{
-     background:rgba(255,255,255,0.6);
- }
- .register input[type=text],input[type=password],input[type=email]{
-     width:100%;
-     padding: 10px;
-     border-radius: 10%;
-     border: none;
-     border-bottom: 2px solid rgb(48, 16, 165);
- }
- .register input[type=submit]{
-     margin-top: 5px;
-     padding: 8px;
-   
- }
- .register input[type=submit]:hover{
-     margin-top: 5px;
-     background-color: rgb(72, 187, 72);
- }
- .register strong{
-     font-size: 18px;
- }
+body {
+    background: #59C173;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+.register {
+    max-width: 350px;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: auto;
+    
+}
+
+.align{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register a {
+    text-decoration: none;
+    font-size: 16px;
+    padding:10px 15px;
+    color: rgb(31, 34, 31);
+    background: #aad8d3;
+    transition: all .3s;
+    margin-left: 10px;
+   
+}
+
+
+form{
+    display: block;
+    width: 100%;
+}
+
+
+input {
+    display: block;
+    border: none;
+}
+
+strong {
+    color: white;
+}
+
+
+.register a:hover {
+    background: transparent;
+}
+
+.register input[type=text],
+input[type=password],input[type=email] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.register input[type=submit] {
+   
+    background-color: #aad8d3;
+    padding: 10px 15px;
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all .3s;
+}
+
+.register input[type=submit]:hover {
+    margin-top: 5px;
+    color: black;
+    background: transparent;
+}
+
+.register strong {
+    font-size: 18px;
+}
+
+@media only screen and(max-width:762px) {
+    body {
+        display: block;
+    }
+}

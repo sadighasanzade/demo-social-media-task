@@ -1,51 +1,97 @@
-body{
-    background:linear-gradient(rgba(38, 13, 177, 0.349),rgba(83, 10, 199, 0.9));
-    margin:0;
-    padding:0;
-    display:flex;
-    
-    
-    flex-direction: column;
+body {
+    background: #59C173;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+.login {
+    max-width: 350px;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
     align-items: center;
-}
-.login{
-   
-   margin-top: 20%;
-   
-}
-.login  a{
-    text-decoration: none;
-    font-size: 18px;
-    box-sizing: border-box;
-    border:1px solid white;
-    padding:5px;
-    background:rgba(255,255,255,0.3);
-    color: rgb(31, 34, 31);
-}
-.login  a:hover{
-    background:rgba(255,255,255,0.6);
-}
-.login input[type=text],input[type=password]{
-    width:100%;
-    padding:10px;
-    border-radius: 10%;
-    border: none;
-    border-bottom: 2px solid rgb(48, 16, 165);
-}
-.login input[type=submit]{
-    margin-top: 5px;
-    padding: 5px;
-}
-.login input[type=submit]:hover{
-    margin-top: 5px;
+    height: 100vh;
+    margin: auto;
     
-    background-color: rgb(72, 187, 72);
 }
-.login strong{
+
+.align{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login a {
+    text-decoration: none;
+    font-size: 16px;
+    padding:10px 15px;
+    color: rgb(31, 34, 31);
+    background: #aad8d3;
+    transition: all .3s;
+    margin-left: 10px;
+   
+}
+
+
+form{
+    display: block;
+    width: 100%;
+}
+
+
+input {
+    display: block;
+    border: none;
+}
+
+strong {
+    color: white;
+}
+
+
+.login a:hover {
+    background: transparent;
+}
+
+.login input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.login input[type=submit] {
+   
+    background-color: #aad8d3;
+    padding: 10px 15px;
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all .3s;
+}
+
+.login input[type=submit]:hover {
+    margin-top: 5px;
+    color: black;
+    background: transparent;
+}
+
+.login strong {
     font-size: 18px;
 }
+
 @media only screen and(max-width:762px) {
-    body{
-        display:block;
+    body {
+        display: block;
     }
 }

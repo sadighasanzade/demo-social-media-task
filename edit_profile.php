@@ -76,10 +76,11 @@ if($_SESSION['username']!=$user){
               </tr>
               <br>
   
-              <tr>
+              <tr class='action'>  
+                  
                     <td><a id='delete' href='delete_post.php?id=". $row['id']."'><strong> Delete </strong></a></td>
                     <td><a id='edit' href='edit_post.php?id=". $row['id']."'><strong> Edit </strong></a></td>
-              
+                    
               </tr>
   
       </table> 

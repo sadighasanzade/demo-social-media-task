@@ -7,7 +7,11 @@
 <?php
 include_once'config.php';
 session_start();
+//hesabina daxil olmamis istifadecinin ana sehifeye gelmesinin qarsisini aliriq.
+if(empty($_SESSION['username']) || $_SESSION['username']==""){
 
+  header("Location: ./index.php");
+}
     $sql_query = "SELECT * FROM userinfo where auth=0";
     $result = mysqli_query($conn, $sql_query);
     //datanin bos olmadigin yoxlayiriq

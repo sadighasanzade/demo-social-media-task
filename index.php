@@ -2,15 +2,15 @@
 <?php
 //Deyisenleri tutmaq ucun Sessionu start edirik
 session_start();
-$css="<link rel ='stylesheet' href='static/css/login.css'>";
-echo $css;
+
 
 ?>
-
+<style>
+<?php include 'static/css/login.css'; ?>
+</style>
 
 <html lang="en">
 <head>
-
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +18,7 @@ echo $css;
     <title>Login</title>
 </head>
 <body>
+
 <div class="login">
     <form  method="POST">
         <strong>Istifadeci adini daxil edin</strong> <br>
@@ -28,8 +29,7 @@ echo $css;
 
 
     </form>
-</div>
-<div class="register">
+
     <a href="register.php">qeydiyatdan kecin.</a>
 
 
@@ -63,7 +63,12 @@ if ($method=='POST'){
         }
     else{
         //eger uyusmasa yanlis istifadeci adi ve ya sifre daxil etdiyini deyirik.
-        echo"yanlis istifadeci adi ve ya sifre";
+        echo"
+        <script type=\"text/javascript\">
+        alert('yanlis istifadeci adi ve ya sifre');
+</script>
+
+";
     }
     
     //database ile elaqeni kesirik.

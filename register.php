@@ -3,6 +3,10 @@
 session_start();
 
 ?>
+<style>
+<?php include 'static/css/register.css'; ?>
+</style>
+
 <!--Sade bir qeydiyyat sehifesi duzeldirik html ile -->
 <html lang="en">
 <head>
@@ -23,14 +27,12 @@ session_start();
         <input type="submit" value="Qeydiyyatdan kec" name="register-btn">
 
 
-    </form>
-</div>
-<div class="login">
+  </form>
+
     <a href="index.php">giriş ekranı.</a>
 
 
 </div>
-    
 </body>
 </html>
 <?php
@@ -55,7 +57,12 @@ if ($method=='POST'){
     //eyni olmadigi halda 0 qaytaracaq ve if operatoru false olacaq datani database-e elave edeceyik.
     if( mysqli_num_rows($result)!=0){
 
-        echo"istifadeci artiq movcuddur giris edin ve ya ferqli hesab yaradin!";
+        echo"
+        <script type=\"text/javascript\">
+        alert('istifadeci adi artiq movcuddur! giris etmeyi sinayin.');
+</script>
+
+";
         mysqli_close($conn);
     }
     else{
@@ -66,22 +73,25 @@ if ($method=='POST'){
 
           //username'i session deyiseni kimi qeyd edirik
           $_SESSION['username']=$username;
-          echo "qeydiyyat ugurla basa catdi";
+          
           mysqli_close($conn);
           header("Location: ./main.php");
           
         }else{
             //sadece istifadeci adi eyni olduqda bu hali oxuyacaq 
             //istifadeciye melumat veririk ki istifadeci adi movcuddur 
-            echo"istifadeci adi movcuddur";
+            echo"
+            <script type=\"text/javascript\">
+            alert('istifadeci artiq movcuddur!');
+    </script>
+    
+    ";
         }
         
     }
 
     
 }
-else{
-    echo"method error";
-}
+
 
 ?>

@@ -8,7 +8,10 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
 }
 
 ?>
-    
+<style>
+<?php include 'static/css/profile.css'; ?>
+</style>
+
 <html lang="en">
 <!--navbari yapisdirirq sehifenin evveline
  -->
@@ -23,19 +26,16 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
     <div class="logo">
         <img src="static/images/logo.png"  style="width:60px;height:50px;">
     </div>
-        <ul style ="margin-left:80%;">
+        <ul >
             <li><a href="main.php"> Ana Səhifə </a></li>
             <li><a href="logout.php"> Çıxış  </a></li>
     
         </ul>
     </header>
    
-    </body>
-    </html>
 
 
-
-
+<div class="post-flow">
 
 
 <?php
@@ -56,7 +56,8 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
         echo" <table  cellspacing=0 cellpadding=0 style='width:500px;'> 
                 <tr>
                     
-                    <td><a href='profile.php?u=". $row['user']."'><strong>". $row['user']."</strong></a></td>
+                    <td><img src='static/images/profile.png' style='height:50px; width:50px;'>
+                    <a href='profile.php?u=". $row['user']."'><strong>". $row['user']."</strong></a></td>
                 </tr>
                 <tr>
                     <td><h3>". $row['title']."</h3></a></td>
@@ -65,7 +66,7 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
                     <td> <p>". $row['post_text']."</p></td>
                 </tr>
                 <tr>
-                    <td><i>". $row['post_time']."</i></td>
+                    <td><h6>". $row['post_time']."</i></td>
                 </tr>
                 <br><br>
     
@@ -79,3 +80,7 @@ if(empty($_SESSION['username']) || $_SESSION['username']==""){
 }
 
     ?>
+</div>
+</body>
+    </html>
+

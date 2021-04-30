@@ -16,6 +16,11 @@ if($_SESSION['username']!=$user){
 
 
 ?>
+<style>
+<?php include 'static/css/edit_profile.css'; ?>
+</style>
+
+
 <html lang="en">
 <!--navbari yapisdirirq sehifenin evveline
  -->
@@ -30,16 +35,14 @@ if($_SESSION['username']!=$user){
     <div class="logo">
         <img src="static/images/logo.png"  style="width:60px;height:50px;">
     </div>
-        <ul style ="margin-left:80%;">
+        <ul >
             <li><a href="main.php"> Ana Səhifə </a></li>
             <li><a href="logout.php"> Çıxış  </a></li>
     
         </ul>
     </header>
    
-    </body>
-    </html>
-
+    <div class="post-flow">
 
     <?php
   
@@ -59,7 +62,8 @@ if($_SESSION['username']!=$user){
       echo" <table  cellspacing=0 cellpadding=0 style='width:500px;'> 
               <tr>
                   
-                  <td><a href='profile.php?u=". $row['user']."'><strong>". $row['user']."</strong></a></td>
+                  <td><img src='static/images/profile.png' style='height:50px; width:50px;'>
+                  <a href='profile.php?u=". $row['user']."'><strong>". $row['user']."</strong></a></td>
               </tr>
               <tr>
                   <td><h3>". $row['title']."</h3></a></td>
@@ -68,13 +72,13 @@ if($_SESSION['username']!=$user){
                   <td> <p>". $row['post_text']."</p></td>
               </tr>
               <tr>
-                  <td><i>". $row['post_time']."</i></td>
+                  <td><h6>". $row['post_time']."</h6></td>
               </tr>
               <br>
   
               <tr>
-                    <td><a href='delete_post.php?id=". $row['id']."'><strong> Delete </strong></a></td>
-                    <td><a href='edit_post.php?id=". $row['id']."'><strong> Edit </strong></a></td>
+                    <td><a id='delete' href='delete_post.php?id=". $row['id']."'><strong> Delete </strong></a></td>
+                    <td><a id='edit' href='edit_post.php?id=". $row['id']."'><strong> Edit </strong></a></td>
               
               </tr>
   
@@ -87,3 +91,6 @@ if($_SESSION['username']!=$user){
 }
 
   ?>
+  </div>
+</body>
+</html>
